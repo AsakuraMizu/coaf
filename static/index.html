@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Coding Together!</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="bootstrap.min.css"/>
+        <script src="jquery.slim.min.js"></script>
+        <script src="popper.min.js"></script>
+        <script src="bootstrap.min.js"></script>
+<style>
+html, body{
+    height:100%;
+}
+body{
+    justify-content: center;
+    align-items: center;
+    box-sizing:border-box;
+}
+#frame{
+    height:100%;
+    padding-top:56px
+}
+#container{
+    height:100%
+}
+#waiting{
+    width:50%;
+    margin-left:25%;
+    margin-top:200px;
+    position:absolute;
+    z-index:2;
+    background-color:#fff;
+    padding:1rem;
+    border-radius:.3rem;
+}
+#overlay{
+    position: fixed;
+    top: -5000px;
+    right: -5000px;
+    bottom: -5000px;
+    left: -5000px;
+    z-index: 1;
+    background: rgba(0,0,0,.4);
+}
+</style>
+    </head>
+    <body>
+        <div id="waiting">
+            <h1>Coding Together!</h1>
+            <p>这是一个提供即时内容diff的小工具！</p>
+            <p>设计初衷是为了服务OI选手，免去传送文件、静态查错中的复杂步骤，一键加入diff！</p>
+            <input id="name" type="text" placeholder="房间名称" class="form-control"/>
+            <br/>
+            <button id="join" type="button" class="btn btn-block btn-primary">加入房间</button>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <a class="navbar-brand" href="javascript:">Coding Together!</a>
+            <button class="btn btn-outline-success" id="cgd">切换显示模式</button>
+        </nav>
+        <div id="overlay"></div>
+        <div id="frame">
+            <div id="container">
+            </div>
+        </div>
+        <script src="socket.io/socket.io.js"></script>
+        <script src="monaco-editor/min/vs/loader.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>

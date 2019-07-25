@@ -1,0 +1,10 @@
+{
+    "name": "codt",
+    "description": "Coding Together!",
+    "version": "0.0.1",
+    "dependencies": {
+        "express": "^4.17.1",
+        "monaco-editor": "^0.17.1",
+        "socket.io": "^2.2.0"
+    }
+}
