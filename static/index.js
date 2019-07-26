@@ -2,7 +2,7 @@ $(function(){
     var socket = io();
     var inline = true;
     var editor;
-    $('#cgd').click(function(){
+    $('#cgd').click(function() {
         inline ^= 1;
         editor.updateOptions({
             renderSideBySide: inline
@@ -12,24 +12,31 @@ $(function(){
     require(['vs/editor/editor.main'], function() {
     	editor = monaco.editor.createDiffEditor(document.getElementById('container'), {enableSplitViewResizing: false});
         editor.setModel({
-            original: monaco.editor.createModel("#include <iostream>\nint main()\n{\n\tstd::cout << \"Hello World!\" << std::endl;\n\treturn 0;\n}", 'cpp'),
-            modified: monaco.editor.createModel("#include <iostream>\nusing namespace std;\nint main()\n{\n\tcout << \"Hello World!\" << endl;\n}", 'cpp')
+            original: monaco.editor.createModel(null, 'cpp'),
+            modified: monaco.editor.createModel(null, 'cpp')
         });
-        editor.getModifiedEditor().onDidChangeModelContent(function(e){
+        editor.getModifiedEditor().onDidChangeModelContent(function(e) {
             socket.emit('update', editor.getModifiedEditor().getValue());
         });
     });
     window.onresize = function () {
         editor.layout();
     };
-    socket.on('update', function(msg) {
-        editor.getOriginalEditor().getModel().setValue(msg);
+    socket.on('update', function(content) {
+        editor.getOriginalEditor().getModel().setValue(content);
     });
-    socket.on('loged', function(msg) {
+    socket.on('refresh', function() {
+        socket.emit('update', editor.getModifiedEditor().getValue());
+    });
+    socket.on('loged', function() {
         $('#waiting').hide();
         $('#overlay').hide();
     });
-    $('#join').click(function(){
+    socket.on('fail', function(msg) {
+        $('#msg').html(msg);
+        $('#dialog').modal();
+    });
+    $('#join').click(function() {
         socket.emit('join', $('#name').val());
     });
 });
