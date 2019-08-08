@@ -8,6 +8,9 @@ $(function(){
             renderSideBySide: inline
         });
     });
+    $('#cpy').click(function() {
+        editor.getModifiedEditor().setValue(editor.getOriginalEditor().getValue());
+    });
     require.config({ paths: { 'vs': 'monaco-editor/min/vs' }});
     require(['vs/editor/editor.main'], function() {
     	editor = monaco.editor.createDiffEditor(document.getElementById('container'), {enableSplitViewResizing: false});
@@ -31,6 +34,8 @@ $(function(){
     socket.on('loged', function() {
         $('#waiting').hide();
         $('#overlay').hide();
+        $('#cgd').removeAttr('disabled');
+        $('#cpy').removeAttr('disabled');
     });
     socket.on('fail', function(msg) {
         $('#msg').html(msg);

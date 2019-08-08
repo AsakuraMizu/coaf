@@ -1,7 +1,7 @@
 {
     "name": "codt",
     "description": "Coding Together!",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "dependencies": {
         "express": "^4.17.1",
         "monaco-editor": "^0.17.1",
