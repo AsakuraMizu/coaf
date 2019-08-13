@@ -6,11 +6,11 @@ A small diff-editor in local-network.
 
 ### Recommand: Download From Release
 
-[Linux]()
+[Linux](https://github.com/water-lift/codt/releases/download/v0.1.0/codt-linux)
 
-[MacOS]()
+[MacOS](https://github.com/water-lift/codt/releases/download/v0.1.0/codt-macos)
 
-[Windows]()
+[Windows](https://github.com/water-lift/codt/releases/download/v0.1.0/codt-win.exe)
 
 NOTICE: x64 only
 
