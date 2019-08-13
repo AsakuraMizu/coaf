@@ -1,10 +1,14 @@
 # Coding Together!
 
-A small diff-editor in local-network.
+A small diff-editor using in local-network.
+
+## Intro
+
+This program will host the server at [http://localhost:3000/](http://localhost:3000).
 
 ## Install
 
-### Recommand: Download From Release
+### Recommend: Download From Release
 
 [Linux](https://github.com/water-lift/codt/releases/download/v0.1.0/codt-linux)
 
@@ -12,7 +16,9 @@ A small diff-editor in local-network.
 
 [Windows](https://github.com/water-lift/codt/releases/download/v0.1.0/codt-win.exe)
 
-NOTICE: x64 only
+**NOTICE: x64 only**
+
+We suggest you run the program in your terminal.
 
 ### Run from source code
 
@@ -33,14 +39,18 @@ Run these command:
 
 ```bash
 npm install
+
 # compile for all platform
 make
+
 # compile only for linux
 make linux
+
 # compile only for macos
 make macos
+
 # compile only for windows
 make win
 ```
 
-Then you can find the excuteble files in out folder.
+Then you can find the excuteble files in "out" folder.
