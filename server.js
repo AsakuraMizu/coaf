@@ -66,6 +66,7 @@ io.on('connection', function(socket) {
         }
     });
     socket.on('disconnect', function() {
+        if (user.room === undefined) { delete user; return; }
         if (user === user.room.user[0]) {
             user.room.user[0] = undefined;
             if (user.room.user[1] === undefined) {
