@@ -1,7 +1,7 @@
 {
-    "name": "codt",
-    "description": "Coding Together!",
-    "version": "0.1.0",
+    "name": "coaf",
+    "description": "Coaf: mOre thAn difF",
+    "version": "0.2.0",
     "dependencies": {
         "bootstrap": "^4.3.1",
         "express": "^4.17.1",
